@@ -13,7 +13,7 @@ const NewAuth = ({ children }) => {
   if (loading || adminLoading) {
     return <Loading />;
   }
-  if (admin) {
+  if (!user || admin) {
     signOut(auth);
     return <Navigate to="/login" state={{ from: location }} replace />;
   }

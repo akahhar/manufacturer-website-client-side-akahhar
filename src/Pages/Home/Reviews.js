@@ -7,20 +7,21 @@ const Reviews = () => {
 
   useEffect(() => {
     const getReviews = async () => {
-      const { data } = await axios.get(`reviews.json`);
+      const { data } = await axios.get(`http://localhost:5000/getReviews`);
       setReviews(data);
     };
     getReviews();
   }, []);
 
+  console.log(reviews);
   return (
     <div className="max-w-7xl mx-auto pt-10 pb-20">
       <div className="text-xl text-center font-bold mb-10 section-header">
         <h3>Top Reviews from the Customers</h3>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5">
-        {reviews.map((review, index) => (
-          <Review key={index} review={review} />
+        {reviews.map((review) => (
+          <Review key={review._id} review={review} />
         ))}
       </div>
     </div>

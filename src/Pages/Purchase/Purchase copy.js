@@ -32,8 +32,8 @@ const Purchase = () => {
   };
 
   if (
-    parseInt(items.minimumOrderQuantity) > parseInt(minimumOrderQuantity) ||
-    parseInt(items.availableQuantity) < parseInt(minimumOrderQuantity)
+    items.minimumOrderQuantity > parseInt(minimumOrderQuantity) ||
+    items.availableQuantity < parseInt(minimumOrderQuantity)
   ) {
     toast.warning(
       `Minimum order : ${items.minimumOrderQuantity} and Maximum order : ${items.availableQuantity}`
@@ -62,16 +62,14 @@ const Purchase = () => {
 
   const onSubmit = (data) => {
     const url = `http://localhost:5000/addOrder`;
-
     const order = {
       userName: user.displayName,
       userEmail: user.email,
       address: data.address,
       phone: data.phoneNumber,
-      quantity: minimumOrderQuantity,
+      quantity: items.minimumOrderQuantity,
       price: price * minimumOrderQuantity,
     };
-    console.log(order);
     fetch(url, {
       method: "POST",
       headers: {

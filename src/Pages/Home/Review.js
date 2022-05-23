@@ -2,7 +2,7 @@ import React from "react";
 import { BsFillStarFill } from "react-icons/bs";
 
 const Review = ({ review }) => {
-  const { name, numberOfRating, description } = review;
+  const { name, ratting, description } = review;
   return (
     <div className="card  bg-base-100 shadow-xl">
       <div className="card-body">
@@ -10,9 +10,7 @@ const Review = ({ review }) => {
         <p className="text-sm">{description}</p>
         <BsFillStarFill />
         <h4>
-          {numberOfRating > 1
-            ? `Ratings : ${numberOfRating}`
-            : `Rating : ${numberOfRating}`}
+          {ratting > 1 ? `rattings : ${ratting}` : `ratting : ${ratting}`}
         </h4>
       </div>
     </div>

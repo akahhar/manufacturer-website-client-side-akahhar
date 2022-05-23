@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Reel Fiberglass Tape",
+    "image": "https://themetechmount.com/html/fixfellow/images/product/pro-front-01.png",
+    "description": "Komelon's open reel fiberglass tapes are perfect for all of your long measuring needs. The double coated fiberglass blade is waterproof and dirt resistant",
+    "minimumOrderQuantity": 5,
+    "availableQuantity": 100,
+    "price": 80
+  },
+  {
+    "name": "Impact Wrench",
+    "image": "https://themetechmount.com/html/fixfellow/images/product/pro-front-02.png",
+    "description": "An impact wrench is a socket wrench power tool designed to deliver high torque output with minimal exertion by the user",
+    "minimumOrderQuantity": 5,
+    "availableQuantity": 60,
+    "price": 40
+  },
+  {
+    "name": "Demolition Breaker",
+    "image": "https://themetechmount.com/html/fixfellow/images/product/pro-front-03.png",
+    "description": "Demolition Hammer in Bangladesh shop from Malamal.xyz Best Dealer price in Bangladesh. Most Reliable Online store for Hardware Tools.",
+    "minimumOrderQuantity": 5,
+    "availableQuantity": 50,
+    "price": 30
+  },
+  {
+    "name": "Cordless Drywall Cutter",
+    "image": "https://themetechmount.com/html/fixfellow/images/product/pro-front-04.png",
+    "description": "Excellent tool balance enables easy overhead operation. Variable speed trigger enables operator to adjust cutting speed based on materials",
+    "minimumOrderQuantity": 5,
+    "availableQuantity": 40,
+    "price": 80
+  },
+  {
+    "name": "Folding Hex Key Set",
+    "image": "https://themetechmount.com/html/fixfellow/images/product/pro-front-05.png",
+    "description": "The Stanley Folding Hex Key set features rubber side inserts which allow for a secure grip and the chamfered edge helps guide the wrench for a smooth.",
+    "minimumOrderQuantity": 5,
+    "availableQuantity": 30,
+    "price": 50
+  },
+  {
+    "name": "Circular Saw",
+    "image": "https://themetechmount.com/html/fixfellow/images/product/pro-front-06.png",
+    "description": "A circular saw is a power-saw using a toothed or abrasive disc or blade to cut different materials using a rotary motion spinning around an arbor.",
+    "minimumOrderQuantity": 5,
+    "availableQuantity": 20,
+    "price": 60
+  },
+  {
+    "name": "Impact Driver Kit",
+    "image": "https://themetechmount.com/html/fixfellow/images/product/pro-front-07.png",
+    "description": "These battery-powered impact drivers are made by Milwaukee. They use an impact force to increase torque when making holes and driving fasteners.",
+    "minimumOrderQuantity": 5,
+    "availableQuantity": 40,
+    "price": 40
+  },
+  {
+    "name": "Tape Measure",
+    "image": "https://themetechmount.com/html/fixfellow/images/product/pro-front-08.png",
+    "description": "A measuring tape is a flexible tool used for measuring length. It is made up of materials like fiberglass, cloth, plastic, metal ribbon, or strip.",
+    "minimumOrderQuantity": 5,
+    "availableQuantity": 20,
+    "price": 60
+  }
+]

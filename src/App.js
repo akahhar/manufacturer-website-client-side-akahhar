@@ -1,9 +1,20 @@
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AddProduct from "./Pages/Dashboard/AddProduct";
+import AddReview from "./Pages/Dashboard/AddReview";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import DashboardMessages from "./Pages/Dashboard/DashboardMessages";
+import MakeAdmin from "./Pages/Dashboard/MakeAdmin";
+import ManageAllOrders from "./Pages/Dashboard/ManageAllOrders";
+import ManageProducts from "./Pages/Dashboard/ManageProducts";
+import MyOrders from "./Pages/Dashboard/MyOrders";
+import MyProfile from "./Pages/Dashboard/MyProfile";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
+import NewAuth from "./Pages/Login/NewAuth";
 import RequireAuth from "./Pages/Login/RequireAuth";
+import UserAuth from "./Pages/Login/UserAuth";
 import Purchase from "./Pages/Purchase/Purchase";
 import SendPasswordReset from "./Pages/SendPasswordReset/SendPasswordReset ";
 import NavBar from "./Pages/Shared/NavBar";
@@ -33,7 +44,8 @@ function App() {
               <Appointment></Appointment>
             </RequireAuth>
           }
-        ></Route>
+        ></Route> */}
+
         <Route
           path="/dashboard"
           element={
@@ -44,20 +56,56 @@ function App() {
         >
           <Route index element={<DashboardMessages />}></Route>
           <Route
-            path="/dashboard/appointments"
-            element={<Appointments />}
+            path="/dashboard/myOrders"
+            element={
+              <NewAuth>
+                <MyOrders />
+              </NewAuth>
+            }
           ></Route>
-          <Route path="/dashboard/reviews" element={<MyReviews />}></Route>
           <Route
-            path="/dashboard/users"
+            path="/dashboard/addReview"
+            element={
+              <NewAuth>
+                <AddReview />
+              </NewAuth>
+            }
+          ></Route>
+          <Route path="/dashboard/myProfile" element={<MyProfile />}></Route>
+          <Route
+            path="/dashboard/manageAllOrders"
             element={
               <UserAuth>
-                <Users></Users>
+                <ManageAllOrders />
+              </UserAuth>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/addProduct"
+            element={
+              <UserAuth>
+                <AddProduct />
+              </UserAuth>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/makeAdmin"
+            element={
+              <UserAuth>
+                <MakeAdmin />
+              </UserAuth>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/manageProducts"
+            element={
+              <UserAuth>
+                <ManageProducts />
               </UserAuth>
             }
           ></Route>
         </Route>
-        <Route path="/about" element={<About />}></Route> */}
+        {/* <Route path="/about" element={<About />}></Route> */}
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/passreset" element={<SendPasswordReset />}></Route>

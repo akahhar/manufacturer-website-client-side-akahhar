@@ -10,6 +10,7 @@ import ManageAllOrders from "./Pages/Dashboard/ManageAllOrders";
 import ManageProducts from "./Pages/Dashboard/ManageProducts";
 import MyOrders from "./Pages/Dashboard/MyOrders";
 import MyProfile from "./Pages/Dashboard/MyProfile";
+import Payment from "./Pages/Dashboard/Payment";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import NewAuth from "./Pages/Login/NewAuth";
@@ -71,6 +72,7 @@ function App() {
               </NewAuth>
             }
           ></Route>
+          <Route path="/dashboard/payment/:id" element={<Payment />}></Route>
           <Route path="/dashboard/myProfile" element={<MyProfile />}></Route>
           <Route
             path="/dashboard/manageAllOrders"

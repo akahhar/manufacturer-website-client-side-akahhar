@@ -31,15 +31,15 @@ const DeleteModal = ({ delModal, refetch, setDelModal }) => {
           </h3>
 
           <div className="modal-action">
+            <label htmlFor="my-modal-3" className="btn btn-success">
+              CANCEL
+            </label>
             <label
               htmlFor="my-modal-3"
               onClick={() => deleteAction(_id)}
               className="btn btn-error"
             >
               DELETE
-            </label>
-            <label htmlFor="my-modal-3" className="btn btn-success">
-              CANCEL
             </label>
           </div>
         </div>

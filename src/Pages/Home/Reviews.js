@@ -13,7 +13,6 @@ const Reviews = () => {
     getReviews();
   }, []);
 
-  console.log(reviews);
   return (
     <div className="max-w-7xl mx-auto pt-10 pb-20">
       <div className="text-xl text-center font-bold mb-10 section-header">

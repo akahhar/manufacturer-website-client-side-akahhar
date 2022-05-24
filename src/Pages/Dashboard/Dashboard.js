@@ -43,10 +43,10 @@ const Dashboard = () => {
                 <Link to="/dashboard/addProduct">Add A Product</Link>
               </li>
               <li>
-                <Link to="/dashboard/makeAdmin">Make Admin</Link>
+                <Link to="/dashboard/manageProducts">Manage Products</Link>
               </li>
               <li>
-                <Link to="/dashboard/manageProducts">Manage Products</Link>
+                <Link to="/dashboard/makeAdmin">Make A Admin</Link>
               </li>
             </>
           )}

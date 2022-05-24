@@ -24,7 +24,6 @@ const MyProfile = () => {
 
   const {
     register,
-    reset,
     formState: { errors },
     handleSubmit,
   } = useForm();
@@ -44,17 +43,12 @@ const MyProfile = () => {
     getReviews();
   }, [user.email]);
 
-  useEffect(() => {
-    // reset form with user data
-    reset(profile);
-  }, [profile, reset]);
-
   if (loading) {
     return <Loading />;
   }
+  console.log(profile);
 
   const onSubmit = (data) => {
-    console.log(data);
     const url = `http://localhost:5000/userProfile/${user.email}`;
 
     const profile = {

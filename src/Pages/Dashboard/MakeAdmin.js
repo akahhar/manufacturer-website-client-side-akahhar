@@ -1,11 +1,8 @@
 import React from "react";
+import Users from "./Users";
 
 const MakeAdmin = () => {
-  return (
-    <div>
-      <h2>MakeAdmin</h2>
-    </div>
-  );
+  return <Users />;
 };
 
 export default MakeAdmin;

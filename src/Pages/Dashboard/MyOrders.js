@@ -1,35 +1,29 @@
-import { signOut } from "firebase/auth";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { useQuery } from "react-query";
 import auth from "../../firebase.init";
+import DeleteModal from "../Shared/DeleteModal";
+import Loading from "../Shared/Loading";
 
 const MyOrders = () => {
-  const navigate = useNavigate();
   const [user] = useAuthState(auth);
-  const [orders, setOrders] = useState([]);
-  useEffect(() => {
-    if (user) {
-      fetch(`http://localhost:5000/orders?email=${user.email}`, {
-        method: "GET",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      })
-        .then((res) => {
-          if (res.status === 401 || res.status === 403) {
-            signOut(auth);
-            localStorage.removeItem("accessToken");
-            navigate("/");
-          }
-          return res.json();
-        })
-        .then((data) => {
-          setOrders(data);
-        });
-    }
-  }, [navigate, user]);
-  console.log(orders);
+  const [delModal, setDelModal] = useState(null);
+  const {
+    data: orders,
+    isLoading,
+    refetch,
+  } = useQuery("users", () =>
+    fetch(`http://localhost:5000/orders?email=${user.email}`, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
+  );
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <div className="overflow-x-auto">
       <table className="table w-full">
@@ -40,9 +34,11 @@ const MyOrders = () => {
             <th>User Name</th>
             <th>Email Address</th>
             <th>Address</th>
+            <th>Product Name</th>
             <th>Phone</th>
             <th>Quantity</th>
             <th>Price</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -53,13 +49,38 @@ const MyOrders = () => {
               <td>{order.userName}</td>
               <td>{order.userEmail}</td>
               <td>{order.address}</td>
+              <td>{order.name}</td>
               <td>{order.phone}</td>
               <td>{order.quantity}</td>
               <td>${order.price}</td>
+              <td>
+                <label
+                  onClick={() => setDelModal(order)}
+                  htmlFor="my-modal-3"
+                  className="btn btn-xs btn-error text-white"
+                >
+                  Delete
+                </label>
+              </td>
+              {/* <td>
+                <button
+                  className="btn btn-xs btn-error"
+                  onClick={() => deleteAction(order._id)}
+                >
+                  Delete
+                </button>
+              </td> */}
             </tr>
           ))}
         </tbody>
       </table>
+      {delModal && (
+        <DeleteModal
+          refetch={refetch}
+          setDelModal={setDelModal}
+          delModal={delModal}
+        />
+      )}
     </div>
   );
 };

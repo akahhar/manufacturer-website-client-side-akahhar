@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 
 const Purchase = () => {
+  const navigate = useNavigate();
   const { itemId } = useParams();
   const [items, setItems] = useState({});
   const [user, loading] = useAuthState(auth);
@@ -31,14 +32,20 @@ const Purchase = () => {
     setItem({ ...item, [e.target.name]: e.target.value });
   };
 
-  if (
-    parseInt(items.minimumOrderQuantity) > parseInt(minimumOrderQuantity) ||
-    parseInt(items.availableQuantity) < parseInt(minimumOrderQuantity)
-  ) {
-    toast.warning(
-      `Minimum order : ${items.minimumOrderQuantity} and Maximum order : ${items.availableQuantity}`
-    );
-  }
+  useEffect(() => {
+    if (
+      parseInt(items.minimumOrderQuantity) > parseInt(minimumOrderQuantity) ||
+      parseInt(items.availableQuantity) < parseInt(minimumOrderQuantity)
+    ) {
+      toast.warning(
+        `Minimum order : ${items.minimumOrderQuantity} and Maximum order : ${items.availableQuantity}`
+      );
+    }
+  }, [
+    items.availableQuantity,
+    items.minimumOrderQuantity,
+    minimumOrderQuantity,
+  ]);
 
   useEffect(() => {
     const url = `http://localhost:5000/item/${itemId}`;
@@ -52,6 +59,7 @@ const Purchase = () => {
 
   const {
     register,
+    reset,
     formState: { errors },
     handleSubmit,
   } = useForm();
@@ -59,6 +67,10 @@ const Purchase = () => {
   if (loading) {
     <Loading />;
   }
+  useEffect(() => {
+    // reset form with user data
+    reset(item);
+  }, [item, reset]);
 
   const onSubmit = (data) => {
     const url = `http://localhost:5000/addOrder`;
@@ -68,6 +80,7 @@ const Purchase = () => {
       userEmail: user.email,
       address: data.address,
       phone: data.phoneNumber,
+      name: name,
       quantity: minimumOrderQuantity,
       price: price * minimumOrderQuantity,
     };
@@ -81,7 +94,10 @@ const Purchase = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        if (data.insertedId) {
+          navigate("/dashboard/myOrders");
+          toast.success("Product Add Successfully");
+        }
       })
       .catch((error) => toast.warning(error.message));
   };
@@ -102,28 +118,11 @@ const Purchase = () => {
                   <span className="label-userName">User Name</span>
                 </label>
                 <input
-                  {...register("userName", {
-                    required: {
-                      value: true,
-                      message: "User Name is required",
-                    },
-                    minLength: {
-                      value: 4,
-                      message: "Must be 4 characters or longer", // JS only: <p>error message</p> TS only support string
-                    },
-                  })}
                   type="text"
+                  disabled
                   value={user.displayName || ""}
-                  placeholder="Type User Name"
                   className="input input-bordered w-full"
                 />
-
-                {errors.userName?.type === "required" && (
-                  <p className="text-red-500">{errors.userName.message}</p>
-                )}
-                {errors.userName?.type === "minLength" && (
-                  <p className="text-red-500">{errors.userName.message}</p>
-                )}
               </div>
 
               <div className="form-control w-full">
@@ -131,48 +130,48 @@ const Purchase = () => {
                   <span className="label-email">Email</span>
                 </label>
                 <input
-                  {...register("email", {
-                    required: {
-                      value: true,
-                      message: "Email address is required",
-                    },
-                    pattern: {
-                      value:
-                        /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
-                      message: "Provide a valid Email", // JS only: <p>error message</p> TS only support string
-                    },
-                  })}
                   type="email"
+                  disabled
                   value={user.email || ""}
-                  placeholder="Type email"
                   className="input input-bordered w-full"
                 />
-
-                <label className="label">
-                  {errors.email?.type === "required" && (
-                    <p className="text-red-500">{errors.email.message}</p>
-                  )}
-                  {errors.email?.type === "pattern" && (
-                    <p className="text-red-500">{errors.email.message}</p>
-                  )}
-                </label>
               </div>
 
               <div className="form-control w-full mb-3">
                 <label className="label">
-                  <span className="label-minimumOrderQuantity">
-                    minimumOrderQuantity
-                  </span>
+                  <span className="label-name">Product Name</span>
                 </label>
                 <input
-                  {...register("minimumOrderQuantity")}
+                  type="text"
+                  disabled
+                  value={name || ""}
+                  className="input input-bordered w-full"
+                />
+              </div>
+
+              <div className="form-control w-full mb-3">
+                <label className="label">
+                  <span className="label-minimumOrderQuantity">Quantity</span>
+                </label>
+                <input
+                  {...register("minimumOrderQuantity", {
+                    required: {
+                      value: true,
+                      message: "Quantity is required",
+                    },
+                  })}
                   name="minimumOrderQuantity"
                   value={minimumOrderQuantity || ""}
                   type="number"
                   onChange={(e) => onInputChange(e)}
-                  placeholder="Type minimumOrderQuantity"
+                  placeholder="Type Quantity"
                   className="input input-bordered w-full"
                 />
+                {errors.minimumOrderQuantity?.type === "required" && (
+                  <p className="text-red-500">
+                    {errors.minimumOrderQuantity.message}
+                  </p>
+                )}
               </div>
 
               <span className="text-red-600">

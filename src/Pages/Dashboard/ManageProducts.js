@@ -56,7 +56,7 @@ const ManageProducts = () => {
               <h3>Available Quantity : {tool.availableQuantity}</h3>
               <h3>Price : {tool.price}</h3>
               <div class="card-actions justify-end">
-                <div class="btn btn-xs btn-primary">Edit</div>
+                {/* <button class="btn btn-xs btn-primary">Edit</button> */}
                 <label
                   onClick={() => setDelModal(tool)}
                   htmlFor="my-modal-3"

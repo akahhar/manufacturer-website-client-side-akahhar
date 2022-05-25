@@ -48,34 +48,6 @@ const AddReview = () => {
               <h2 className="font-bold mb-5">Add a Review</h2>
               <div className="form-control w-full mb-3">
                 <label className="label">
-                  <span className="label-userName">User Name</span>
-                </label>
-                <input
-                  {...register("userName", {
-                    required: {
-                      value: true,
-                      message: "User Name is required",
-                    },
-                    minLength: {
-                      value: 4,
-                      message: "Must be 4 characters or longer", // JS only: <p>error message</p> TS only support string
-                    },
-                  })}
-                  type="text"
-                  value={user.displayName || ""}
-                  placeholder="Type User Name"
-                  className="input input-bordered w-full"
-                />
-
-                {errors.userName?.type === "required" && (
-                  <p className="text-red-500">{errors.userName.message}</p>
-                )}
-                {errors.userName?.type === "minLength" && (
-                  <p className="text-red-500">{errors.userName.message}</p>
-                )}
-              </div>
-              <div className="form-control w-full mb-3">
-                <label className="label">
                   <span className="label-description">Description</span>
                 </label>
                 <textarea
@@ -133,7 +105,7 @@ const AddReview = () => {
               </div>
 
               <div className="card-actions">
-                <button className="btn btn-accent">Submit</button>
+                <button className="btn btn-accent btn-md">Submit</button>
               </div>
             </form>
           </div>

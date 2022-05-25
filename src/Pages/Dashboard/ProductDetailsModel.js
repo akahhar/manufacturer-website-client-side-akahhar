@@ -1,7 +1,6 @@
 import React from "react";
 
 const ProductDetailsModel = ({ productDetails }) => {
-  console.log(productDetails);
   const {
     image,
     name,
@@ -14,7 +13,6 @@ const ProductDetailsModel = ({ productDetails }) => {
     userName,
     _id,
   } = productDetails;
-  console.log(image);
   return (
     <div>
       <input type="checkbox" id="my-modal-6" class="modal-toggle" />
@@ -31,8 +29,10 @@ const ProductDetailsModel = ({ productDetails }) => {
               <img src={image} alt="Shoes" class="rounded-xl" />
             </figure>
             <div class="card-body items-center text-center">
-              <h2 class="card-title">{name}</h2>
-              <p>{address}</p>
+              <h2 class="card-title">Product name : {name}</h2>
+              <p>Email : {userEmail}</p>
+              <p>Address : {address}</p>
+              <p>Phone Number : {phone}</p>
             </div>
           </div>
         </div>

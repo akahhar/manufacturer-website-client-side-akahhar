@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Blog from "./Pages/Blogs/Blog";
 import AddProduct from "./Pages/Dashboard/AddProduct";
 import AddReview from "./Pages/Dashboard/AddReview";
 import Dashboard from "./Pages/Dashboard/Dashboard";
@@ -16,6 +17,8 @@ import AdminAuth from "./Pages/Login/AdminAuth";
 import Login from "./Pages/Login/Login";
 import RequireAuth from "./Pages/Login/RequireAuth";
 import UserAuth from "./Pages/Login/UserAuth";
+import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
+import NotFound from "./Pages/NotFound/NotFound";
 import Purchase from "./Pages/Purchase/Purchase";
 import SendPasswordReset from "./Pages/SendPasswordReset/SendPasswordReset ";
 import NavBar from "./Pages/Shared/NavBar";
@@ -101,7 +104,10 @@ function App() {
         {/* <Route path="/about" element={<About />}></Route> */}
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
+        <Route path="/blog" element={<Blog />}></Route>
+        <Route path="/myPortfolio" element={<MyPortfolio />}></Route>
         <Route path="/passreset" element={<SendPasswordReset />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <ToastContainer />
     </div>

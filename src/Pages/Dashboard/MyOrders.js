@@ -6,10 +6,12 @@ import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import DeleteModal from "../Shared/DeleteModal";
 import Loading from "../Shared/Loading";
+import ProductDetailsModel from "./ProductDetailsModel";
 
 const MyOrders = () => {
   const [user] = useAuthState(auth);
   const [delModal, setDelModal] = useState(null);
+  const [productDetails, setProductDetails] = useState(null);
   const {
     data: orders,
     isLoading,
@@ -50,11 +52,16 @@ const MyOrders = () => {
         orders?.map((order) => (
           <div className="card bg-base-100 shadow-xl">
             <div className="card-body">
-              <h2 className="card-title">Product name : {order.name}</h2>
-              <p>Name : {order.userName}</p>
-              <p>Email : {order.userEmail}</p>
-              <p>Address : {order.address}</p>
-              <p>Phone : {order.phone}</p>
+              <div className="flex justify-between items-center">
+                <h2 className="card-title">Product name : {order.name}</h2>
+                <label
+                  htmlFor="my-modal-6"
+                  className="btn btn-xs"
+                  onClick={() => setProductDetails(order)}
+                >
+                  Details
+                </label>
+              </div>
               <p>
                 Quantity :{" "}
                 <span className="text-green-600 font-bold">
@@ -114,6 +121,9 @@ const MyOrders = () => {
           delModal={delModal}
           deleteAction={deleteAction}
         />
+      )}
+      {productDetails && (
+        <ProductDetailsModel productDetails={productDetails} />
       )}
     </div>
   );

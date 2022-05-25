@@ -12,8 +12,8 @@ import MyOrders from "./Pages/Dashboard/MyOrders";
 import MyProfile from "./Pages/Dashboard/MyProfile";
 import Payment from "./Pages/Dashboard/Payment";
 import Home from "./Pages/Home/Home";
+import AdminAuth from "./Pages/Login/AdminAuth";
 import Login from "./Pages/Login/Login";
-import NewAuth from "./Pages/Login/NewAuth";
 import RequireAuth from "./Pages/Login/RequireAuth";
 import UserAuth from "./Pages/Login/UserAuth";
 import Purchase from "./Pages/Purchase/Purchase";
@@ -38,15 +38,6 @@ function App() {
           }
         ></Route>
 
-        {/* <Route
-          path="/appointment"
-          element={
-            <RequireAuth>
-              <Appointment></Appointment>
-            </RequireAuth>
-          }
-        ></Route> */}
-
         <Route
           path="/dashboard"
           element={
@@ -59,17 +50,17 @@ function App() {
           <Route
             path="/dashboard/myOrders"
             element={
-              <NewAuth>
+              <UserAuth>
                 <MyOrders />
-              </NewAuth>
+              </UserAuth>
             }
           ></Route>
           <Route
             path="/dashboard/addReview"
             element={
-              <NewAuth>
+              <UserAuth>
                 <AddReview />
-              </NewAuth>
+              </UserAuth>
             }
           ></Route>
           <Route path="/dashboard/payment/:id" element={<Payment />}></Route>
@@ -77,33 +68,33 @@ function App() {
           <Route
             path="/dashboard/manageAllOrders"
             element={
-              <UserAuth>
+              <AdminAuth>
                 <ManageAllOrders />
-              </UserAuth>
+              </AdminAuth>
             }
           ></Route>
           <Route
             path="/dashboard/addProduct"
             element={
-              <UserAuth>
+              <AdminAuth>
                 <AddProduct />
-              </UserAuth>
+              </AdminAuth>
             }
           ></Route>
           <Route
             path="/dashboard/makeAdmin"
             element={
-              <UserAuth>
+              <AdminAuth>
                 <MakeAdmin />
-              </UserAuth>
+              </AdminAuth>
             }
           ></Route>
           <Route
             path="/dashboard/manageProducts"
             element={
-              <UserAuth>
+              <AdminAuth>
                 <ManageProducts />
-              </UserAuth>
+              </AdminAuth>
             }
           ></Route>
         </Route>

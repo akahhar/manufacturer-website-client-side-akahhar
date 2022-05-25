@@ -83,6 +83,7 @@ const Purchase = () => {
       name: name,
       quantity: minimumOrderQuantity,
       price: price * minimumOrderQuantity,
+      image: image,
     };
     console.log(order);
     fetch(url, {

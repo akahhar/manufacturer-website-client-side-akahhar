@@ -39,6 +39,7 @@ const Payment = () => {
           <h2 className="text-xl">
             Please pay : <span className="text-error">${order.price}</span>
           </h2>
+          <p className="font-bold">Quantity : {order.quantity}</p>
           <div className="mt-5">
             <Elements stripe={stripePromise}>
               <CheckoutForm order={order} />

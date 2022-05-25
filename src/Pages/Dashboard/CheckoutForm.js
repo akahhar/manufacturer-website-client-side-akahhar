@@ -1,5 +1,7 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const CheckoutForm = ({ order }) => {
   const [cardError, setCardError] = useState("");
@@ -72,6 +74,7 @@ const CheckoutForm = ({ order }) => {
       setTransId(paymentIntent.id);
       setCardError("");
       setSuccess("Congrats! your payment is completed");
+      toast.success("Congrats! your payment is completed");
 
       // store payment on database
       const payment = {
@@ -120,6 +123,9 @@ const CheckoutForm = ({ order }) => {
           Pay
         </button>
       </form>
+      <Link to="/dashboard/myOrders" className="btn btn-sm mt-3">
+        Back to my orders
+      </Link>
       {cardError && <p className="text-error mt-1">{cardError}</p>}
       {success && <p className="text-success mt-1">{success}</p>}
       {transId && (

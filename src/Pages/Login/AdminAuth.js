@@ -6,14 +6,14 @@ import auth from "../../firebase.init";
 import useAdmin from "../../hooks/useAdmin";
 import Loading from "../Shared/Loading";
 
-const NewAuth = ({ children }) => {
+const AdminAuth = ({ children }) => {
   const [user, loading] = useAuthState(auth);
   const [admin, adminLoading] = useAdmin(user);
   const location = useLocation();
   if (loading || adminLoading) {
     return <Loading />;
   }
-  if (!user || admin) {
+  if (!user || !admin) {
     signOut(auth);
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
@@ -21,4 +21,4 @@ const NewAuth = ({ children }) => {
   return <div>{children}</div>;
 };
 
-export default NewAuth;
+export default AdminAuth;

@@ -105,7 +105,7 @@ const AddReview = () => {
               </div>
 
               <div className="card-actions">
-                <button className="btn btn-accent btn-md">Submit</button>
+                <button className="btn btn-accent btn-sm">Submit</button>
               </div>
             </form>
           </div>

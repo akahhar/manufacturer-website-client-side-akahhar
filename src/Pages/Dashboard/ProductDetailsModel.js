@@ -15,21 +15,21 @@ const ProductDetailsModel = ({ productDetails }) => {
   } = productDetails;
   return (
     <div>
-      <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-      <div class="modal">
-        <div class="modal-box relative">
+      <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box relative">
           <label
             for="my-modal-6"
-            class="btn btn-sm btn-circle absolute right-2 top-2"
+            className="btn btn-sm btn-circle absolute right-2 top-2"
           >
             ✕
           </label>
-          <div class="card">
-            <figure class="px-10 pt-10">
-              <img src={image} alt="Shoes" class="rounded-xl" />
+          <div className="card">
+            <figure className="px-10 pt-10">
+              <img src={image} alt="Shoes" className="rounded-xl" />
             </figure>
-            <div class="card-body items-center text-center">
-              <h2 class="card-title">Product name : {name}</h2>
+            <div className="card-body items-center text-center">
+              <h2 className="card-title">Product name : {name}</h2>
               <p>Email : {userEmail}</p>
               <p>Address : {address}</p>
               <p>Phone Number : {phone}</p>

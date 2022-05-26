@@ -8,9 +8,37 @@ const Review = ({ review }) => {
       <div className="card-body">
         <h2 className="card-title text-base grid">Name : {name}</h2>
         <p className="text-sm">{description}</p>
-        <BsFillStarFill />
+
         <h4>
-          {ratting > 1 ? `rattings : ${ratting}` : `ratting : ${ratting}`}
+          {ratting === "5" ? (
+            <div className="flex">
+              <BsFillStarFill />
+              <BsFillStarFill />
+              <BsFillStarFill />
+              <BsFillStarFill />
+              <BsFillStarFill />
+            </div>
+          ) : ratting === "4" ? (
+            <div className="flex">
+              <BsFillStarFill />
+              <BsFillStarFill />
+              <BsFillStarFill />
+              <BsFillStarFill />
+            </div>
+          ) : ratting === "3" ? (
+            <div className="flex">
+              <BsFillStarFill />
+              <BsFillStarFill />
+              <BsFillStarFill />
+            </div>
+          ) : ratting === "2" ? (
+            <div className="flex">
+              <BsFillStarFill />
+              <BsFillStarFill />
+            </div>
+          ) : (
+            <BsFillStarFill />
+          )}
         </h4>
       </div>
     </div>

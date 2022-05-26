@@ -44,19 +44,19 @@ const ManageProducts = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
       {tools &&
         tools?.map((tool) => (
-          <div class="card bg-base-100 shadow-xl">
+          <div className="card bg-base-100 shadow-xl">
             <figure>
               <img src={tool.image} alt="Shoes" />
             </figure>
-            <div class="card-body">
-              <h2 class="card-title">{tool.name}</h2>
+            <div className="card-body">
+              <h2 className="card-title">{tool.name}</h2>
 
               <p>{tool.description}</p>
               <h3>Minimum Order Quantity : {tool.minimumOrderQuantity}</h3>
               <h3>Available Quantity : {tool.availableQuantity}</h3>
               <h3>Price : {tool.price}</h3>
-              <div class="card-actions justify-end">
-                {/* <button class="btn btn-xs btn-primary">Edit</button> */}
+              <div className="card-actions justify-end">
+                {/* <button className="btn btn-xs btn-primary">Edit</button> */}
                 <label
                   onClick={() => setDelModal(tool)}
                   htmlFor="my-modal-3"

@@ -1,15 +1,9 @@
 import React from "react";
-import appointment from "../../assets/images/appointment.png";
 import PrimaryButton from "../Shared/PrimaryButton";
 
 const Contact = () => {
   return (
-    <div
-      className="bg-primary px-10 py-14"
-      style={{
-        background: `url(${appointment})`,
-      }}
-    >
+    <div className="px-10 py-14">
       <div className="text-center pb-14 text-white">
         <p className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-accent to-secondary">
           Contact Us

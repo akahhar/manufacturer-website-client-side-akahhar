@@ -2,7 +2,9 @@ import React from "react";
 import Footer from "../Shared/Footer";
 import Banner from "./Banner";
 import BusinessSummary from "./BusinessSummary";
+import Faq from "./Faq";
 import Reviews from "./Reviews";
+import Team from "./Team";
 import Tools from "./Tools";
 
 const Home = () => {
@@ -12,11 +14,8 @@ const Home = () => {
       <Tools />
       <BusinessSummary />
       <Reviews />
-      {/* <Info />
-      <Services />
-      <MakeAppointment />
-      <Testimonial />
-      <Contact /> */}
+      <Team />
+      <Faq />
       <Footer />
     </div>
   );

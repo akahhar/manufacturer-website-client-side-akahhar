@@ -11,8 +11,13 @@ const Tools = () => {
 
   return (
     <div className="max-w-7xl mx-auto py-20">
-      <div className="text-xl text-center font-bold mb-10 section-header">
-        <h3>Our Top Selling Products</h3>
+      <div className="flex flex-col text-center w-full mb-20">
+        <h2 className="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">
+          Our Products
+        </h2>
+        <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900">
+          Products designed to help you work
+        </h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {tools.map((tool, index) => (

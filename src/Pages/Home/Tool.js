@@ -14,9 +14,9 @@ const Tool = ({ tool }) => {
   } = tool;
 
   return (
-    <div className="card border border-sky-150 rounded-none">
+    <div className="card bg-base-100 shadow-xl">
       <div className="card-body">
-        <img className="border border-sky-150" src={image} alt="" />
+        <img src={image} alt="" />
         <h2 className="card-title text-base grid">{name}</h2>
         <p className="text-sm">{description}</p>
         <h4>Minimum Order Quantity : {minimumOrderQuantity}</h4>

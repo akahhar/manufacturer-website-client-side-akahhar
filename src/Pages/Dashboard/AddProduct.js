@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 
 const AddProduct = () => {
   const [user, loading] = useAuthState(auth);
-
+  const navigate = useNavigate();
   const [products, setProducts] = useState({
     name: "",
     image: "",
@@ -64,6 +65,7 @@ const AddProduct = () => {
         console.log(data);
         if (data.insertedId) {
           toast.success("Product save successfully");
+          navigate("/dashboard/manageProducts");
         }
       })
       .catch((error) => toast.warning(error.message));

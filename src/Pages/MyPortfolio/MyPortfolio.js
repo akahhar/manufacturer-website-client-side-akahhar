@@ -86,15 +86,39 @@ const MyPortfolio = () => {
               </div>
             </section>
             <h2>Three of my projects (live website links) here.</h2>
-            <a className="text-green-500" href="https://ziscoerp.com/">
+            <a
+              className="text-green-500"
+              href="https://nexaerp.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              nexaerp.com
+            </a>{" "}
+            <br></br>
+            <a
+              className="text-green-500"
+              href="https://ziscoerp.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
               ziscoerp.com
             </a>
             <br></br>
-            <a className="text-green-500" href="https://hrm.codexcube.com/">
+            <a
+              className="text-green-500"
+              href="https://hrm.codexcube.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
               hrm.codexcube.com
             </a>
             <br></br>
-            <a className="text-green-500" href="http://codexcube.com/">
+            <a
+              className="text-green-500"
+              href="http://codexcube.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
               Codexcube.com
             </a>
           </div>

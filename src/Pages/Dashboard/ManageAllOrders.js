@@ -22,22 +22,25 @@ const ManageAllOrders = () => {
   );
 
   const setAction = (id) => {
-    fetch(`https://lit-brushlands-20447.herokuapp.com/order/admin/${id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount > 0) {
-          toast.success("Your product has shipped");
-          refetch();
-        }
-      });
-    // .catch((error) => toast.warning(error.message));
+    const confirm = window.confirm("Are sure shipped this product?");
+    if (confirm) {
+      fetch(`https://lit-brushlands-20447.herokuapp.com/order/admin/${id}`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.modifiedCount > 0) {
+            toast.success("Your product has shipped");
+            refetch();
+          }
+        });
+      // .catch((error) => toast.warning(error.message));
+    }
   };
 
   const deleteAction = (delData) => {

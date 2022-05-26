@@ -105,8 +105,13 @@ const Purchase = () => {
 
   return (
     <div className="max-w-7xl mx-auto pt-10 pb-20">
-      <div className="text-xl text-center font-bold mb-10 section-header">
-        <h3>Detailed information about the item</h3>
+      <div className="flex flex-col text-center w-full">
+        <h2 className="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">
+          Our Product
+        </h2>
+        <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900">
+          Detailed information about the product
+        </h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
         <div className="card">

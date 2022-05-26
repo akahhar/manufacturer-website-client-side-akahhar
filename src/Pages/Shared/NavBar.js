@@ -73,7 +73,14 @@ const NavBar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menusItems}</ul>
       </div>
-      <div> {user?.displayName ? user?.displayName : "New User Zone"}</div>
+      <div>
+        {" "}
+        {user?.displayName ? (
+          <div className="btn btn-xs">{user?.displayName}</div>
+        ) : (
+          "New User"
+        )}
+      </div>
       <div className="navbar-end lg:hidden">
         <label
           htmlFor="my-drawer-2"

@@ -125,13 +125,19 @@ const ManageAllOrders = () => {
 
               {order.paid && (
                 <div className="card-actions justify-start">
-                  Set status :
-                  <button
-                    onClick={() => setAction(order._id)}
-                    className="btn btn-xs btn-primary text-white"
-                  >
-                    Approve Now
-                  </button>
+                  Status :
+                  {order?.status ? (
+                    <button className="btn btn-xs btn-primary text-white">
+                      Approved
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => setAction(order._id)}
+                      className="btn btn-xs btn-secondary text-white"
+                    >
+                      Approve Now ?
+                    </button>
+                  )}
                 </div>
               )}
             </div>

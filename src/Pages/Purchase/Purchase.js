@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
+import useAdmin from "../../hooks/useAdmin";
 import Loading from "../Shared/Loading";
 
 const Purchase = () => {
@@ -11,6 +12,15 @@ const Purchase = () => {
   const { itemId } = useParams();
   const [items, setItems] = useState({});
   const [user, loading] = useAuthState(auth);
+  const [admin, adminLoading] = useAdmin(user);
+
+  useEffect(() => {
+    if (!adminLoading && admin) {
+      toast.error("As admin! you are not permitted to the order!");
+      navigate("/");
+    }
+  }, [admin, adminLoading, navigate]);
+
   const [item, setItem] = useState({
     name: "",
     image: "",

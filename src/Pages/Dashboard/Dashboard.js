@@ -32,12 +32,11 @@ const Dashboard = () => {
               <li>
                 <CustomLink to="/dashboard/addReview">Add A Review</CustomLink>
               </li>
-              <li>
-                <CustomLink to="/dashboard/myProfile">My Orders</CustomLink>
-              </li>
             </>
           )}
-
+          <li>
+            <CustomLink to="/dashboard/myProfile">My Profile</CustomLink>
+          </li>
           {admin && (
             <>
               <li>

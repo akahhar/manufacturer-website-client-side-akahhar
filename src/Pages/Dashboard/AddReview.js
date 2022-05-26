@@ -15,7 +15,7 @@ const AddReview = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    const url = `http://localhost:5000/addReview`;
+    const url = `https://lit-brushlands-20447.herokuapp.com/addReview`;
 
     const review = {
       name: user.displayName,

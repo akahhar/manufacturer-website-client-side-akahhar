@@ -11,7 +11,7 @@ const ManageProducts = () => {
     isLoading,
     refetch,
   } = useQuery("orders", () =>
-    fetch(`http://localhost:5000/getToolsByAdmin`, {
+    fetch(`https://lit-brushlands-20447.herokuapp.com/getToolsByAdmin`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -20,12 +20,15 @@ const ManageProducts = () => {
   );
 
   const deleteAction = (delData) => {
-    fetch(`http://localhost:5000/deleteTool/${delData._id}`, {
-      method: "delete",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://lit-brushlands-20447.herokuapp.com/deleteTool/${delData._id}`,
+      {
+        method: "delete",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {

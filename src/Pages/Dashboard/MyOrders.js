@@ -17,7 +17,7 @@ const MyOrders = () => {
     isLoading,
     refetch,
   } = useQuery("orders", () =>
-    fetch(`http://localhost:5000/orders/${user.email}`, {
+    fetch(`https://lit-brushlands-20447.herokuapp.com/orders/${user.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -26,7 +26,7 @@ const MyOrders = () => {
   );
 
   const deleteAction = (delData) => {
-    fetch(`http://localhost:5000/order/${delData._id}`, {
+    fetch(`https://lit-brushlands-20447.herokuapp.com/order/${delData._id}`, {
       method: "delete",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

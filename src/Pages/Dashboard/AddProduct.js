@@ -41,7 +41,7 @@ const AddProduct = () => {
   }
 
   const onSubmit = (data) => {
-    const url = `http://localhost:5000/addTools`;
+    const url = `https://lit-brushlands-20447.herokuapp.com/addTools`;
 
     const pro = {
       name: data.name,

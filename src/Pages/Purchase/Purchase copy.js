@@ -41,7 +41,7 @@ const Purchase = () => {
   }
 
   useEffect(() => {
-    const url = `http://localhost:5000/item/${itemId}`;
+    const url = `https://lit-brushlands-20447.herokuapp.com/item/${itemId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -61,7 +61,7 @@ const Purchase = () => {
   }
 
   const onSubmit = (data) => {
-    const url = `http://localhost:5000/addOrder`;
+    const url = `https://lit-brushlands-20447.herokuapp.com/addOrder`;
     const order = {
       userName: user.displayName,
       userEmail: user.email,

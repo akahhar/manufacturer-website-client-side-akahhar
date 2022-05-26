@@ -13,7 +13,7 @@ const ManageAllOrders = () => {
     isLoading,
     refetch,
   } = useQuery("orders", () =>
-    fetch(`http://localhost:5000/getOrders`, {
+    fetch(`https://lit-brushlands-20447.herokuapp.com/getOrders`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -22,7 +22,7 @@ const ManageAllOrders = () => {
   );
 
   const setAction = (id) => {
-    fetch(`http://localhost:5000/order/admin/${id}`, {
+    fetch(`https://lit-brushlands-20447.herokuapp.com/order/admin/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -41,7 +41,7 @@ const ManageAllOrders = () => {
   };
 
   const deleteAction = (delData) => {
-    fetch(`http://localhost:5000/order/${delData._id}`, {
+    fetch(`https://lit-brushlands-20447.herokuapp.com/order/${delData._id}`, {
       method: "delete",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

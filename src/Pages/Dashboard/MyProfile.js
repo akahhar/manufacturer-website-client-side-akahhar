@@ -32,7 +32,7 @@ const MyProfile = () => {
   useEffect(() => {
     const getReviews = async () => {
       const { data } = await axios.get(
-        `http://localhost:5000/getUserProfile/${user.email}`,
+        `https://lit-brushlands-20447.herokuapp.com/getUserProfile/${user.email}`,
         {
           headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -55,7 +55,7 @@ const MyProfile = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    const url = `http://localhost:5000/userProfile/${user.email}`;
+    const url = `https://lit-brushlands-20447.herokuapp.com/userProfile/${user.email}`;
 
     const profile = {
       name: user.displayName,

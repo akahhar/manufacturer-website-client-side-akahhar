@@ -7,7 +7,9 @@ const Reviews = () => {
 
   useEffect(() => {
     const getReviews = async () => {
-      const { data } = await axios.get(`http://localhost:5000/getReviews`);
+      const { data } = await axios.get(
+        `https://lit-brushlands-20447.herokuapp.com/getReviews`
+      );
       setReviews(data);
     };
     getReviews();

@@ -8,7 +8,7 @@ const BookingModal = ({ treatMent, date, setTreatMent, user }) => {
   const handleBooking = (event) => {
     event.preventDefault();
     const slot = event.target.slot.value;
-    const url = `http://localhost:5000/booking`;
+    const url = `https://lit-brushlands-20447.herokuapp.com/booking`;
 
     const booking = {
       treatMentId: _id,

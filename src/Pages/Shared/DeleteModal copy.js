@@ -5,7 +5,7 @@ const DeleteModal = ({ delModal, refetch, setDelModal }) => {
   const { name, _id } = delModal;
 
   const deleteAction = (id) => {
-    fetch(`http://localhost:5000/order/${id}`, {
+    fetch(`https://lit-brushlands-20447.herokuapp.com/order/${id}`, {
       method: "delete",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

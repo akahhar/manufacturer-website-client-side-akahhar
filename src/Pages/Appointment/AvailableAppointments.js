@@ -13,11 +13,13 @@ const AvailableAppointments = ({ selected }) => {
 
   useEffect(() => {
     const getMyItems = async () => {
-      const { data } = await axios.get(`http://localhost:5000/getServices`);
+      const { data } = await axios.get(
+        `https://lit-brushlands-20447.herokuapp.com/getServices`
+      );
       setServices(data);
     };
     getMyItems();
-    // fetch(`http://localhost:5000/getServices`)
+    // fetch(`https://lit-brushlands-20447.herokuapp.com/getServices`)
     //   .then((res) => res.json())
     //   .then((data) => setServices(data));
   }, []);

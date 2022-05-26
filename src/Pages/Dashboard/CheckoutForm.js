@@ -28,6 +28,7 @@ const CheckoutForm = ({ order }) => {
   }, [price]);
 
   const handleSubmit = async (event) => {
+    setLoading(true);
     // Block native form submission.
     event.preventDefault();
 
@@ -70,12 +71,13 @@ const CheckoutForm = ({ order }) => {
 
     if (intentError) {
       setCardError(intentError?.message || "");
+      setLoading(false);
     } else {
       setTransId(paymentIntent.id);
       setCardError("");
       setSuccess("Congrats! your payment is completed");
       toast.success("Congrats! your payment is completed");
-
+      setLoading(false);
       // store payment on database
       const payment = {
         orderId: _id,
@@ -118,7 +120,7 @@ const CheckoutForm = ({ order }) => {
         <button
           type="submit"
           className="btn btn-success btn-sm mt-5 text-white"
-          disabled={!stripe || !clientSecret}
+          disabled={!stripe || !clientSecret || loading}
         >
           Pay
         </button>

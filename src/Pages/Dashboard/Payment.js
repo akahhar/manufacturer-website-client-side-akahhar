@@ -27,12 +27,15 @@ const Payment = () => {
   if (isLoading) {
     return <Loading />;
   }
-
+  console.log(order);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
       <div className="card  bg-base-100 shadow-xl mb-5">
         <div className="card-body">
           <h2 className="card-title">Hello, {order.userName}</h2>
+          <h2 className="text-xl">Address : {order.address}</h2>
+          <h2 className="text-xl">Phone : {order.phone}</h2>
+
           <p className="font-bold">
             Please pay for : <span className="text-primary">{order.name}</span>
           </p>

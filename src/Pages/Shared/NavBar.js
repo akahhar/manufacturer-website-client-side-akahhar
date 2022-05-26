@@ -4,6 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/large_toolero -l.png";
 import auth from "../../firebase.init";
+import CustomLink from "./CustomLink";
 const NavBar = () => {
   const [user, loading, error] = useAuthState(auth);
 
@@ -14,18 +15,18 @@ const NavBar = () => {
   const menusItems = (
     <>
       <li>
-        <Link to="/home">Home</Link>
+        <CustomLink to="/home">Home</CustomLink>
       </li>
       {user && (
         <li>
-          <Link to="/dashboard">Dashboard</Link>
+          <CustomLink to="/dashboard">Dashboard</CustomLink>
         </li>
       )}
       <li>
-        <Link to="/blog">Blogs</Link>
+        <CustomLink to="/blog">Blogs</CustomLink>
       </li>
       <li>
-        <Link to="/myPortfolio">My Portfolio</Link>
+        <CustomLink to="/myPortfolio">My Portfolio</CustomLink>
       </li>
       <li>
         {user ? (
@@ -33,7 +34,7 @@ const NavBar = () => {
             Log out
           </button>
         ) : (
-          <Link to="/login">Login</Link>
+          <CustomLink to="/login">Login</CustomLink>
         )}
       </li>
     </>

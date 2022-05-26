@@ -49,8 +49,8 @@ const MyOrders = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
       {orders &&
-        orders?.map((order) => (
-          <div className="card bg-base-100 shadow-xl">
+        orders?.map((order, index) => (
+          <div key={index} className="card bg-base-100 shadow-xl">
             <div className="card-body">
               <div className="flex justify-between items-center">
                 <h2 className="card-title">Product name : {order.name}</h2>

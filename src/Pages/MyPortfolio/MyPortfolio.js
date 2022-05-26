@@ -50,14 +50,23 @@ const MyPortfolio = () => {
                           70%
                         </div>
                       </div>
-
-                      <h2 class="pt-5">PHP</h2>
+                      <h2 class="pt-5">React</h2>
                       <div class="shadow w-full bg-gray-200 mt-2">
                         <div
                           class="bg-gray-600 text-xs leading-none py-1 text-center text-white"
                           style={{ width: "80%" }}
                         >
                           80%
+                        </div>
+                      </div>
+
+                      <h2 class="pt-5">PHP</h2>
+                      <div class="shadow w-full bg-gray-200 mt-2">
+                        <div
+                          class="bg-gray-600 text-xs leading-none py-1 text-center text-white"
+                          style={{ width: "75%" }}
+                        >
+                          75%
                         </div>
                       </div>
 

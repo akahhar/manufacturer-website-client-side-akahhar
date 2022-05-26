@@ -1,8 +1,9 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import auth from "../../firebase.init";
 import useAdmin from "../../hooks/useAdmin";
+import CustomLink from "../Shared/CustomLink";
 
 const Dashboard = () => {
   const [user] = useAuthState(auth);
@@ -21,34 +22,40 @@ const Dashboard = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
           <li>
-            <Link to="/dashboard">Dashboard</Link>
+            <CustomLink to="/dashboard">Dashboard</CustomLink>
           </li>
           {!admin && (
             <>
               <li>
-                <Link to="/dashboard/myOrders">My Orders</Link>
+                <CustomLink to="/dashboard/myOrders">My Orders</CustomLink>
               </li>
               <li>
-                <Link to="/dashboard/addReview">Add A Review</Link>
+                <CustomLink to="/dashboard/addReview">Add A Review</CustomLink>
               </li>
             </>
           )}
           <li>
-            <Link to="/dashboard/myProfile">My Profile</Link>
+            <CustomLink to="/dashboard/myProfile">My Orders</CustomLink>
           </li>
           {admin && (
             <>
               <li>
-                <Link to="/dashboard/manageAllOrders">Manage All Orders</Link>
+                <CustomLink to="/dashboard/manageAllOrders">
+                  Manage All Orders
+                </CustomLink>
               </li>
               <li>
-                <Link to="/dashboard/addProduct">Add A Product</Link>
+                <CustomLink to="/dashboard/addProduct">
+                  Add A Product
+                </CustomLink>
               </li>
               <li>
-                <Link to="/dashboard/manageProducts">Manage Products</Link>
+                <CustomLink to="/dashboard/manageProducts">
+                  Manage Products
+                </CustomLink>
               </li>
               <li>
-                <Link to="/dashboard/makeAdmin">Make A Admin</Link>
+                <CustomLink to="/dashboard/makeAdmin">Make A Admin</CustomLink>
               </li>
             </>
           )}

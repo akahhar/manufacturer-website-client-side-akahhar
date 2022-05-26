@@ -8,7 +8,7 @@ const BusinessSummary = () => {
           Business Summary
         </h2>
         <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900">
-          The executive summary of a business plan
+          Executive summary of a business
         </h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 shadow">
